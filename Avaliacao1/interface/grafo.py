@@ -16,9 +16,8 @@ class Tela_grafo:
         pass
     
     def dadosGrafo(self, grafo, vertices, arestas, direcional):
-
-        self.Vertices = grafo
-        self.Arestas = vertices
+        self.Vertices = vertices
+        self.Arestas = arestas
         self.Grafo = grafo
         self.Direcional = direcional
         self.attRepresentacao()

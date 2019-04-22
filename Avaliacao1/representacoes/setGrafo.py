@@ -72,6 +72,7 @@ def matrizAdjacencia(conjunto_vertices, conjunto_arestas):
 
 def listarGrafo(grafo, conjunto_vertices, conjunto_arestas):
     # Imprime os dados de um grafo
+    print(f'V(G): \n{conjunto_vertices}')
     text = ''
     text = text + f'Grafo: \n{grafo}'
     text =  text + f'\n\nV(G): \n{conjunto_vertices}'

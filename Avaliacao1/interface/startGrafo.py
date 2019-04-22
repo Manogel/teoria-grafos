@@ -60,6 +60,7 @@ class Start_grafo:
         self.Grafo = listaAjacencia(self.Vertices, self.Arestas)
 
         self.limpaTela()
+        
         Tela_grafo(self.master, self.Grafo, self.Vertices, self.Arestas, direcional)
     
     def limpaTela(self):
