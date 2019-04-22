@@ -1,21 +1,30 @@
 from tkinter import *
 from tkinter import scrolledtext
 from tkinter.ttk import *
-from tkinter import Frame as Fram
-
+from representacoes.listaAdj import *
+from representacoes.setGrafo import *
 
 class Tela_grafo:
-    def __init__(self, master=None, txt='representacao'):
+    def __init__(self, master, grafo, vertices, arestas, direcional):
         self.master = master
-        self.master.geometry('480x230')
+        self.master.geometry('550x240')
         lblTitle = Label(
-            self.master, text=txt, font="Times 12 bold", padding=5)
+            self.master, text='Listar Grafo', font="Times 12 bold", padding=5)
         lblTitle.pack(side=TOP)
         self.createWidget()
+        self.dadosGrafo(grafo, vertices, arestas, direcional)
         pass
+    
+    def dadosGrafo(self, grafo, vertices, arestas, direcional):
+
+        self.Vertices = grafo
+        self.Arestas = vertices
+        self.Grafo = grafo
+        self.Direcional = direcional
+        self.attRepresentacao()
 
     def createWidget(self):
-        framePrincipal = Frame(self.master, padding=10)
+        framePrincipal = Frame(self.master, padding=15)
         framePrincipal.pack()
         self.container1 = Frame(framePrincipal, padding=1)
         self.container1.pack(side=LEFT)
@@ -28,7 +37,8 @@ class Tela_grafo:
 
     def createVisualizacao(self):
         self.txt = scrolledtext.ScrolledText(
-            self.container2, width=30, height=10, wrap=WORD)
+            self.container2, width=55, height=10, wrap=WORD)
+        self.txt['state'] = DISABLED
         self.txt.pack(side=RIGHT)
 
     def createMenu(self):
@@ -46,3 +56,12 @@ class Tela_grafo:
         self.btnDropAresta = Button(
             self.container11, text='Remove aresta', width=17, padding=2)
         self.btnDropAresta.pack()
+    
+    def attRepresentacao(self, text = 'teztsetf'):
+        self.txt['state'] = NORMAL
+        self.txt.delete('1.0', END)
+        text = listarGrafo(self.Grafo, self.Vertices, self.Arestas)
+        self.txt.insert(INSERT, text)
+        self.txt['state'] = DISABLED
+        
+

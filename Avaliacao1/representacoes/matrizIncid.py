@@ -1,4 +1,4 @@
-from setGrafo import *
+from representacoes.setGrafo import *
 import numpy as np
 
 """ vertices = [0, 1, 2, 3]
@@ -112,7 +112,7 @@ def visitarVertice(conjunto_vertices, conjunto_arestas, grafo):
 
 
 #vertices, arestas, grafo = dropVertice(vertices, arestas, grafo)
-vertices, grafo = addVertice(vertices, arestas, grafo)
+""" vertices, grafo = addVertice(vertices, arestas, grafo)
 vertices, grafo = addVertice(vertices, arestas, grafo)
 vertices, grafo = addVertice(vertices, arestas, grafo)
 arestas, grafo = addAresta(vertices, arestas, grafo)
@@ -124,3 +124,4 @@ print(vertices)
 print(arestas)
 print(grafo)
 visitarVertice(vertices, arestas, grafo)
+ """

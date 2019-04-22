@@ -1,4 +1,4 @@
-from setGrafo import *
+from representacoes.setGrafo import *
 
 
 def addVertice(conjunto_vertices, grafo):
@@ -93,7 +93,7 @@ def consultarVertice(grafo, conjunto_vertices):
     print(dadoTxt[:-2] + '}')
 
 
-vertices = [0, 1, 2, 3]
+""" vertices = [0, 1, 2, 3]
 arestas = [(0, 1), (1, 0), (0, 3), (3, 0), (1, 3),
            (3, 1), (2, 2), (3, 2), (2, 3)]
 grafo = listaAjacencia(vertices, arestas)
@@ -107,4 +107,4 @@ arestas, grafo = dropAresta(vertices, arestas, grafo)
 
 print('==============')
 listarGrafo(grafo, vertices, arestas)
-consultarVertice(grafo, vertices)
+consultarVertice(grafo, vertices) """
