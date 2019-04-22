@@ -3,7 +3,7 @@ from setGrafo import *
 
 def addVertice(conjunto_vertices, grafo):
     # Adiciona um vertice ao meu conjunto de vertices
-    print('ADICIONA VERTICE')
+    print('UM VERTICE FOI ADICIONADO')
     conjunto_vertices.append(max(conjunto_vertices)+1)
     grafo.append([])
     return conjunto_vertices, grafo

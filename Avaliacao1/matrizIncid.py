@@ -12,6 +12,7 @@ arestas, grafo = matrizIncidencia(vertices, arestas)
 
 
 def addVertice(conjunto_vertices, conjunto_arestas, grafo):
+    # Adiona um vertice
     print('UM VERTICE FOI ADICIONADO')
     new_vertice = np.zeros((len(conjunto_arestas)), dtype=np.int)
     auxGrafo = list(grafo)
@@ -22,6 +23,7 @@ def addVertice(conjunto_vertices, conjunto_arestas, grafo):
 
 
 def addAresta(conjunto_vertices, conjunto_arestas, grafo):
+    # Adiciona uma aresta
     print('ADICIONAR ARESTA')
     v1 = int(input('Insira o vertice1 de incidencia: '))
     v2 = int(input('Insira o vertice2 de incidencia: '))
@@ -51,6 +53,8 @@ def addAresta(conjunto_vertices, conjunto_arestas, grafo):
 
 
 def dropVertice(conjunto_vertices, conjunto_arestas, grafo):
+    '''Remove um vertice do meu grafo e atualiza a representação do grafo,
+    o conjunto de arestas e vertices'''
     print('REMOVE VERTICE')
     vertice = int(
         input(f'Dado V(G): {conjunto_vertices}, informe o vertice: '))
@@ -69,6 +73,7 @@ def dropVertice(conjunto_vertices, conjunto_arestas, grafo):
 
 
 def dropAresta(conjunto_vertices, conjunto_arestas, grafo):
+    ''' Remove uma aresta e atualiza a representação do grafo, tambem, o conjunto de arestas'''
     print('REMOVE ARESTA')
     v1 = int(input('Insira o vertice1 de incidencia: '))
     v2 = int(input('Insira o vertice2 de incidencia: '))
@@ -91,6 +96,7 @@ def dropAresta(conjunto_vertices, conjunto_arestas, grafo):
 
 
 def visitarVertice(conjunto_vertices, conjunto_arestas, grafo):
+    ''' Faz uma visita no vertice desejado e retorna todos os seus dados'''
     print('VISITAR VERTICE')
     vertice = int(
         input(f'Dado V(G): {conjunto_vertices}, informe o vertice a ser visitado:'))

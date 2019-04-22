@@ -46,6 +46,7 @@ def getArestas(conjunto_vertices, dirigido=False):
 
 
 def listaAjacencia(conjunto_vertices, conjunto_arestas):
+    # Retorna a representação do grafo por lista de adjacencia
     grafo = list()
     for c in conjunto_vertices:
         aux = []
@@ -54,11 +55,11 @@ def listaAjacencia(conjunto_vertices, conjunto_arestas):
     for v1, v2 in conjunto_arestas:
         if v2 not in grafo[v1]:
             grafo[v1].append(v2)
-
     return grafo
 
 
 def matrizAdjacencia(conjunto_vertices, conjunto_arestas):
+    # Retorna a representação do grafo por matriz de adjacencia
     import numpy as np
     qntVertices = len(conjunto_vertices)
     grafo = np.zeros((qntVertices, qntVertices), dtype=np.int)
@@ -75,6 +76,7 @@ def listarGrafo(grafo, conjunto_vertices, conjunto_arestas):
 
 
 def matrizIncidencia(conjunto_vertices, conjunto_arestas, dirigido=False):
+    # Retorna a representação do grafo por matriz de incidencia
     auxArestas = list()
     for aresta in conjunto_arestas:
         if aresta not in auxArestas and (aresta[1], aresta[0]) not in auxArestas:
