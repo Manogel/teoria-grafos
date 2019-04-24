@@ -1,8 +1,9 @@
 from representacoes.setGrafo import *
+from representacoes.Teste import *
 import numpy as np
 
-class ListaAdjacencia:
-    def __init__(self, txtVertice, txtArestas, dirigido):
+class ListaAdjacencia(object):
+    def __init__(self, txtVertice, txtArestas, dirigido = 0):
         self.dirigido = dirigido
         self.vertices = getVertices(txtVertice)
         self.arestas = getArestas(txtArestas, self.vertices, dirigido)
@@ -98,17 +99,25 @@ class ListaAdjacencia:
         return True
 
 
-    def consultarVertice(vertice):
+    def consultarVertice(self, vertice):
         # Dado um vertice, é feita a consulta imprimindo todos os dados referentes àquele vertice
         print('CONSULTAR VERTICE')
         """ vertice = int(
             input(f'Informe o vertice dado V(G) = {self.vertices}: \n')) """
         indexVertice = self.vertices.index(vertice)
-        print(f'Consultando o vertice {vertice}: ')
+        dadoTxt = f'Consultando o vertice {vertice}: \n\n'
         dadoTxt = f'E({vertice}) = ' + '{'
         for incide in self.grafo[indexVertice]:
             dadoTxt = dadoTxt + f'({vertice},{incide}), '
-        print(dadoTxt[:-2] + '}')
-    
-    
-        
+        return dadoTxt[:-2] + '}'
+
+    def listarGrafo(self):
+        # Imprime os dados de um grafo
+        print(f'V(G): \n{self.vertices}')
+        text = ''
+        text = text + f'Grafo: \n{self.grafo}'
+        text =  text + f'\n\nV(G): \n{self.vertices}'
+        text =  text + f'\n\nE(G): \n{self.arestas}'
+        return text
+
+#lista = ListaAdjacencia('{0, 1, 2, 3}', '{(0, 1) - (1, 2) - (3, 0) - (2, 3)}', 1)

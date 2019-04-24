@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import scrolledtext
 from tkinter.ttk import *
 from interface.grafo import *
+from representacoes.Teste import *
 
 class Start_grafo:
     def __init__(self, master=None, txt='representacao'):
@@ -55,13 +56,10 @@ class Start_grafo:
         direcional = self.checkBox.get()
         vertices = self.inpVertices.get()
         arestas = self.inpArestas.get()
-        self.Vertices = getVertices(vertices)
-        self.Arestas = getArestas(arestas, self.Vertices, direcional)
-        self.Grafo = listaAjacencia(self.Vertices, self.Arestas)
+        Grafo = ListaAdjacencia(vertices, arestas, direcional)
 
         self.limpaTela()
-        
-        Tela_grafo(self.master, self.Grafo, self.Vertices, self.Arestas, direcional)
+        Tela_grafo(self.master, Grafo)
     
     def limpaTela(self):
         for widget in self.master.winfo_children():
