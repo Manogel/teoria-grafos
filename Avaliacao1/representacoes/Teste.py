@@ -1,14 +1,12 @@
-from representacoes.setGrafo import *
-from representacoes.Teste import *
+from representacoes.Grafo import *
 import numpy as np
 
-class ListaAdjacencia(object):
-    def __init__(self, txtVertice, txtArestas, dirigido = 0):
-        self.dirigido = dirigido
-        self.vertices = getVertices(txtVertice)
-        self.arestas = getArestas(txtArestas, self.vertices, dirigido)
+
+class ListaAdjacencia(Grafo):
+    def __init__(self, txtVertice, txtArestas, dirigido=0):
+        super().__init__(txtVertice, txtArestas, dirigido)
         self.grafo = self.listaAjacencia()
-    
+
     def listaAjacencia(self):
         # Retorna a representação do grafo por lista de adjacencia
         grafo = list()
@@ -57,7 +55,8 @@ class ListaAdjacencia(object):
         print('REMOVE VERTICE')
         #vertice = int(input(f"Dado V(G): {self.vertices}, qual remover: "))
         if vertice not in self.vertices:
-            print(f'ERRO: {vertice} não correspondem ao conjunto de vertices!!')
+            print(
+                f'ERRO: {vertice} não correspondem ao conjunto de vertices!!')
             return False
         else:
             indice_remocao = self.vertices.index(vertice)
@@ -72,11 +71,10 @@ class ListaAdjacencia(object):
         for index, adjacencia in enumerate(self.grafo):
             if vertice in adjacencia:
                 auxGrafo[index].remove(vertice)
-        
+
         self.arestas = auxArestas
         self.grafo = auxGrafo
         return True
-
 
     def dropAresta(self, v1, v2):
         '''
@@ -98,7 +96,6 @@ class ListaAdjacencia(object):
 
         return True
 
-
     def consultarVertice(self, vertice):
         # Dado um vertice, é feita a consulta imprimindo todos os dados referentes àquele vertice
         print('CONSULTAR VERTICE')
@@ -111,13 +108,5 @@ class ListaAdjacencia(object):
             dadoTxt = dadoTxt + f'({vertice},{incide}), '
         return dadoTxt[:-2] + '}'
 
-    def listarGrafo(self):
-        # Imprime os dados de um grafo
-        print(f'V(G): \n{self.vertices}')
-        text = ''
-        text = text + f'Grafo: \n{self.grafo}'
-        text =  text + f'\n\nV(G): \n{self.vertices}'
-        text =  text + f'\n\nE(G): \n{self.arestas}'
-        return text
 
 #lista = ListaAdjacencia('{0, 1, 2, 3}', '{(0, 1) - (1, 2) - (3, 0) - (2, 3)}', 1)
