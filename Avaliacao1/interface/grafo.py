@@ -1,9 +1,9 @@
 from tkinter import *
 from tkinter import scrolledtext
 from tkinter.ttk import *
-from representacoes.listaAdj import *
-from representacoes.setGrafo import *
-
+from representacoes.listaAdjacecia import *
+#from representacoes.setGrafo import *
+from representacoes.matrizIncidencia import *
 
 class Tela_grafo:
     def __init__(self, master, grafo):
@@ -43,10 +43,10 @@ class Tela_grafo:
             self.container11, text='Adicionar vertice', width=17, padding=2, command=self.addVertice)
         self.btnAddVertice.pack()
         self.btnAddAresta = Button(
-            self.container11, text='Adicionar aresta', width=17, padding=2)
+            self.container11, text='Adicionar aresta', width=17, padding=2, command=self.adicionaAresta)
         self.btnAddAresta.pack()
         self.btnDropVertice = Button(
-            self.container11, text='Remove vertice', width=17, padding=2)
+            self.container11, text='Remove vertice', width=17, padding=2, command=self.removeVertice)
         self.btnDropVertice.pack()
         self.btnDropAresta = Button(
             self.container11, text='Remove aresta', width=17, padding=2, command=self.removeAresta)
@@ -78,8 +78,63 @@ class Tela_grafo:
             self.container11, width=17)
         self.inpVertice2.pack()
 
+        self.lblSeparator = Label(
+            self.container11, text='', padding=0)
+        self.lblSeparator.pack()
+
         self.btnAttArestas = Button(
             self.container11, text='Remover', width=17, padding=2, command=self.dropAresta)
+        self.btnAttArestas.pack()
+
+        self.btnVoltar = Button(
+            self.container11, text='Voltar', width=17, padding=2, command=self.createMenu)
+        self.btnVoltar.pack()
+        pass
+
+    def adicionaAresta(self):
+        self.limpaFrame(self.container11)
+        self.lblVertice1 = Label(
+            self.container11, text='Vertice incidente:', padding=2)
+        self.lblVertice1.pack()
+        self.inpVertice1 = Entry(
+            self.container11, width=17)
+        self.inpVertice1.pack()
+
+        self.lblVertice2 = Label(
+            self.container11, text='Vertice incidente:', padding=2)
+        self.lblVertice2.pack()
+        self.inpVertice2 = Entry(
+            self.container11, width=17)
+        self.inpVertice2.pack()
+
+        self.lblSeparator = Label(
+            self.container11, text='', padding=0)
+        self.lblSeparator.pack()
+
+        self.btnAttArestas = Button(
+            self.container11, text='Adicionar', width=17, padding=2, command=self.addAresta)
+        self.btnAttArestas.pack()
+
+        self.btnVoltar = Button(
+            self.container11, text='Voltar', width=17, padding=2, command=self.createMenu)
+        self.btnVoltar.pack()
+        pass
+
+    def removeVertice(self):
+        self.limpaFrame(self.container11)
+        self.lblVertice1 = Label(
+            self.container11, text='Vertice:', padding=2)
+        self.lblVertice1.pack()
+        self.inpVertice = Entry(
+            self.container11, width=17)
+        self.inpVertice.pack()
+
+        self.lblVertice2 = Label(
+            self.container11, text='', padding=0)
+        self.lblVertice2.pack()
+
+        self.btnAttArestas = Button(
+            self.container11, text='Remover', width=17, padding=2, command=self.dropVertice)
         self.btnAttArestas.pack()
 
         self.btnVoltar = Button(
@@ -91,6 +146,17 @@ class Tela_grafo:
         vertice1 = int(self.inpVertice1.get())
         vertice2 = int(self.inpVertice2.get())
         self.Grafo.dropAresta(vertice1, vertice2)
+        self.attRepresentacao()
+
+    def addAresta(self):
+        vertice1 = int(self.inpVertice1.get())
+        vertice2 = int(self.inpVertice2.get())
+        self.Grafo.addAresta(vertice1, vertice2)
+        self.attRepresentacao()
+
+    def dropVertice(self):
+        vertice = int(self.inpVertice.get())
+        self.Grafo.dropVertice(vertice)
         self.attRepresentacao()
 
     def limpaFrame(self, frame):

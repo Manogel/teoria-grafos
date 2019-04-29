@@ -43,9 +43,9 @@ class ListaAdjacencia(Grafo):
         indexAdicao1 = self.vertices.index(v1)
         indexAdicao2 = self.vertices.index(v2)
         if v2 not in self.grafo[indexAdicao1]:
-            self.grafo[v1].append(v2)
+            self.grafo[indexAdicao1].append(v2)
         if v1 not in self.grafo[indexAdicao2] and self.dirigido == False:
-            self.grafo[v2].append(v1)
+            self.grafo[indexAdicao2].append(v1)
         return True
 
     def dropVertice(self, vertice):
@@ -89,7 +89,7 @@ class ListaAdjacencia(Grafo):
             self.arestas.remove((v1, v2))
             self.grafo[indexRemocao].remove(v2)
 
-        if (v2, v1) in self.arestas:
+        if (v2, v1) in self.arestas and self.dirigido == False:
             indexRemocao = self.vertices.index(v2)
             self.arestas.remove((v2, v1))
             self.grafo[indexRemocao].remove(v1)

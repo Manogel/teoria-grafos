@@ -2,7 +2,8 @@ from tkinter import *
 from tkinter import scrolledtext
 from tkinter.ttk import *
 from interface.grafo import *
-from representacoes.Teste import *
+from representacoes.listaAdjacecia import *
+from representacoes.matrizIncidencia import *
 
 class Start_grafo:
     def __init__(self, master=None, txt='representacao'):
@@ -56,7 +57,7 @@ class Start_grafo:
         direcional = self.checkBox.get()
         vertices = self.inpVertices.get()
         arestas = self.inpArestas.get()
-        Grafo = ListaAdjacencia(vertices, arestas, direcional)
+        Grafo = MatrizIncidencia('{0, 1, 2, 3}', '{(0, 1) - (1, 2) - (3, 0) - (2, 3)}', direcional)
 
         self.limpaTela()
         Tela_grafo(self.master, Grafo)
