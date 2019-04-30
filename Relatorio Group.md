@@ -1,3 +1,5 @@
+ATENÇÃO: PARA MELHOR VISUALIZAÇÃO, ABRA ESTE ARQUIVO PELO GITHUB
+
 Trabalhos referente as aulas de teoria os grafos incluindo atividades avaliativas referente a produção de algoritmos!
 
 Segue abaixo o relatorio de cada parte do algoritmo e como executar:
