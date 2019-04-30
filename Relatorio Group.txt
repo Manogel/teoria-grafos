@@ -19,33 +19,33 @@ Feito isso:
 |   |        do codigo. A interface foi produzida na biblioteta nativa do python 3.7, Tkinter.
 |   |
 |   |---representacoes
-|   |       |       *Aqui contem todas as representações e manipulacoes solicitadas pela professora Patricia, isso inclui as
-|   |       |       representações de lista de adjacencia, matriz de incidencia e matriz de adjacencia e em cada uma delas
-|   |       |       vai ser gerada uma representação por conjuntos. As representações estão separadas por classes em diferentes arquivos .py .
-|   |       |
-|   |       |--Grafo.py
-|   |       |       *Classe pai abstrada que contem as propriedades basicas de cada representação de grafo
-|   |       |
-|   |       |--listaAdjacecia.py
-|   |       |       *Representação de grafo por lista de adjacencia e seus metodos de manipulação!
-|   |       |       Dado um grafo G(V,E) Cada lista A(v) é denominada lista de adjacência de v, e contém todos os vértices que são adjacentes a v.
-|   |       |
-|   |       |--matrizAdjacencia.py
-|   |       |       *Representação de grafo por matriz de adjacencia e seus metodos de manipulação
-                    A matriz de adjacência é uma matriz n x n, onde n é dado por n vertices, onde o valor de cada elemento E(jk) da matriz é determinado 
-                    da seguinte maneira:
-                        E(jk) = 1, se os vértices v(j) e v(k) são ligados por uma aresta, senão, E(jk) = 0.
-
-|   |       |
-|   |       |--matrizIncidencia.py
-|   |       |       *Representação de grafo por matriz de incidencia e seus metodos de manipulação
-                    Seja G um grafo de n vértices v1, v2,…,vn, e m arestas a1, a2, …, am, e nenhum laço.
-                    É uma matriz n x m, onde o valor de cada elemento da matriz é determinado da seguinte maneira:
-                        E(jk) = 1, se a aresta a(k) é incidente ao vértice v(j), senão, = 0!
-                        Sendo J a linha e K a coluna do elemento E.
-                    Se G for um grafo dirigido, então:
-                        E(jk) = 1, se a aresta a(k) sai do vértice v(j)
-                        E(jk) = -1, se a aresta a(k) chega no vértice v(j), senão, = 0
+|   |   |       *Aqui contem todas as representações e manipulacoes solicitadas pela professora Patricia, isso inclui as
+|   |   |       representações de lista de adjacencia, matriz de incidencia e matriz de adjacencia e em cada uma delas
+|   |   |       vai ser gerada uma representação por conjuntos. As representações estão separadas por classes em diferentes arquivos .py .
+|   |   |
+|   |   |--Grafo.py
+|   |   |       *Classe pai abstrada que contem as propriedades basicas de cada representação de grafo
+|   |   |
+|   |   |--listaAdjacecia.py
+|   |   |       *Representação de grafo por lista de adjacencia e seus metodos de manipulação!
+|   |   |       Dado um grafo G(V,E) Cada lista A(v) é denominada lista de adjacência de v, e contém todos os vértices que são adjacentes a v.
+|   |   |
+|   |   |--matrizAdjacencia.py
+|   |   |       *Representação de grafo por matriz de adjacencia e seus metodos de manipulação
+|   |   |          A matriz de adjacência é uma matriz n x n, onde n é dado por n vertices, onde o valor de cada elemento E(jk) da matriz é determinado 
+|   |   |        da seguinte maneira:
+|   |   |            E(jk) = 1, se os vértices v(j) e v(k) são ligados por uma aresta, senão, E(jk) = 0.
+|   |   |
+|   |   |
+|   |   |--matrizIncidencia.py
+|   |   |       *Representação de grafo por matriz de incidencia e seus metodos de manipulação
+|   |   |              Seja G um grafo de n vértices v1, v2,…,vn, e m arestas a1, a2, …, am, e nenhum laço.
+|   |   |              É uma matriz n x m, onde o valor de cada elemento da matriz é determinado da seguinte maneira:
+|   |   |                  E(jk) = 1, se a aresta a(k) é incidente ao vértice v(j), senão, = 0!
+|   |   |                  Sendo J a linha e K a coluna do elemento E.
+|   |   |              Se G for um grafo dirigido, então:
+|   |   |                  E(jk) = 1, se a aresta a(k) sai do vértice v(j)
+|   |   |                  E(jk) = -1, se a aresta a(k) chega no vértice v(j), senão, = 0
 |   |
 |   |--main.py
 |   |       *Arquivo principal de executação dos metodos de representacoes, basta executar no terminal esse arquivo!
