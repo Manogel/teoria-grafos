@@ -1,4 +1,4 @@
-from interface.main import *
+from interface.mainOption import *
 
 telaPrincipal = Tk()
 Tela(telaPrincipal)

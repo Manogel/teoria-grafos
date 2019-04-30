@@ -1,0 +1,84 @@
+Trabalhos referente as aulas de teoria os grafos incluindo atividades avaliativas referente a produção de algoritmos!
+
+Segue abaixo o relatorio de cada parte do algoritmo e como executar:
+
+Todos os codigos produzidos foram feito em linguagem de programação python, abaixo contem uma descrição de cada pasta:
+
+OBSERVAÇÃO: todos os algoritmos foram feitos em python 3.7 e é preciso instalar a biblioteta numpy, para instalar, execute no terminal:
+
+pip install numpy
+
+Feito isso:
+
+|---Avaliacao1
+|   |
+|   |---interface
+|   |        *Nessa atividade foi feita uma interface grafica para melhor entendimento da execução
+|   |         do codigo. A interface foi produzida na biblioteta nativa do python 3.7, Tkinter. 
+|   |
+|   |---representacoes
+|   |    |    *Aqui contem todas as representações e manipulacoes solicitadas pela professora Patricia, isso inclui as
+|   |    |     representações de lista de adjacencia, matriz de incidencia e matriz de adjacencia e em cada uma delas 
+|   |    |     vai ser gerada uma representação por conjuntos. As representações estão separadas por classes em diferentes arquivos .py .
+|   |    |
+|   |    |--Grafo.py
+|   |    |       *Classe pai abstrada que contem as propriedades basicas de cada representação de grafo
+|   |    |
+|   |    |--listaAdjacecia.py
+|   |    |        *Representação de grafo por lista de adjacencia e seus metodos de manipulação
+|   |    |
+|   |    |--matrizAdjacencia.py
+|   |    |        *Representação de grafo por matriz de adjacencia e seus metodos de manipulação
+|   |    |
+|   |    |--matrizIncidencia.py
+|   |    |        *Representação de grafo por matriz de incidencia e seus metodos de manipulação
+|   |    |
+|   |    |
+|   |
+|   |
+|   |--main.py
+|   |        *Arquivo principal de executação dos metodos de representacoes, basta executar no terminal esse arquivo!
+|
+|
+|---Busca-Largura
+|        |
+|        |--busca.py
+|                *Arquivo principal de execução do metodo, nele esta declarado estaticamente o grafo representado na imagem Grafo1.png
+|                 da mesma pasta. Para testar outro grafo basta declarar o grafo desejado por meio da lista de adjacencia.
+|        |
+|        |--Grafo1.png
+|                *Representação do grafo utilizado para teste no algoritmo de busca! 
+|        |
+|        |
+|        
+|
+|---Fleury
+        |
+        |--Fleury.py 
+                *Arquivo principal de executação do metodo
+        |
+        |--GrafosEulerianosFleuryEx1e2.pdf
+                *Este pdf contem os exemplos utilizados
+        |
+        |--README.md 
+                *Este é um arquivo importante, para mais detalhes do algoritmo de Fleury, abra e leia este arquivo.
+
+|
+|
+|---Kruskal
+        |
+        |--
+        
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+

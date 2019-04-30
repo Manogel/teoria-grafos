@@ -3,7 +3,7 @@ import numpy as np
 
 
 class MatrizIncidencia(Grafo):
-    def __init__(self, txtVertice, txtArestas, dirigido=0):
+    def __init__(self, txtVertice, txtArestas, dirigido):
         super().__init__(txtVertice, txtArestas, dirigido)
         self.grafo = self.matrizIncidencia()
 
@@ -46,9 +46,15 @@ class MatrizIncidencia(Grafo):
             print(
                 f'ERRO, {v1} e/ou {v2} não pertence ao seu conjunto V(G): {self.vertices}')
             return False
-        if (v1, v2) in self.arestas or (v2, v1) in self.arestas:
+
+        if self.dirigido == True and (v1, v2) in self.arestas:
             print(f'ERRO, aresta informada ja exite em seu conjunto de arestas!')
             return False
+
+        if self.dirigido == False and (v1, v2) in self.arestas or (v2, v1) in self.arestas:
+            print(f'ERRO, aresta informada ja exite em seu conjunto de arestas!')
+            return False
+
         indexV1 = self.vertices.index(v1)
         indexV2 = self.vertices.index(v2)
         auxGrafo = list()
@@ -58,7 +64,10 @@ class MatrizIncidencia(Grafo):
             if indexV1 == index:
                 auxColuna.append(1)
             elif indexV2 == index:
-                auxColuna.append(1)
+                if self.dirigido == False:
+                    auxColuna.append(1)
+                else:
+                    auxColuna.append(-1)
             else:
                 auxColuna.append(0)
             auxGrafo.append(np.array(auxColuna))
@@ -66,60 +75,70 @@ class MatrizIncidencia(Grafo):
         self.grafo = np.array(auxGrafo)
         return True
 
-    def dropVertice(self, conjunto_vertices, conjunto_arestas, grafo):
+    def dropVertice(self, vertice):
         '''Remove um vertice do meu grafo e atualiza a representação do grafo,
         o conjunto de arestas e vertices'''
         print('REMOVE VERTICE')
-        vertice = int(
-            input(f'Dado V(G): {conjunto_vertices}, informe o vertice: '))
-        if vertice not in conjunto_vertices:
+        """ vertice = int(
+            input(f'Dado V(G): {conjunto_vertices}, informe o vertice: ')) """
+        if vertice not in self.vertices:
             print(
                 f'ERRO, {vertice} não pertence ao seu conjunto de vertices!!')
-            return conjunto_vertices, conjunto_arestas, grafo
-        indexVertice = conjunto_vertices.index(vertice)
-        grafo = np.delete(grafo, indexVertice, 0)
-        auxConjArestas = conjunto_arestas[::-1]
+            return False
+        indexVertice = self.vertices.index(vertice)
+        self.vertices.remove(vertice)
+        self.grafo = np.delete(self.grafo, indexVertice, 0)
+        auxConjArestas = self.arestas[::-1]
         for value in auxConjArestas:
             if vertice in value:
-                indexRemocao = conjunto_arestas.index(value)
-                grafo = np.delete(grafo, indexRemocao, 1)
-                conjunto_arestas.remove(value)
-        return conjunto_vertices, conjunto_arestas, grafo
+                indexRemocao = self.arestas.index(value)
+                self.grafo = np.delete(self.grafo, indexRemocao, 1)
+                self.arestas.remove(value)
+        return True
 
-    def dropAresta(self, conjunto_vertices, conjunto_arestas, grafo):
+    def dropAresta(self, v1, v2):
         ''' Remove uma aresta e atualiza a representação do grafo, tambem, o conjunto de arestas'''
         print('REMOVE ARESTA')
-        v1 = int(input('Insira o vertice1 de incidencia: '))
-        v2 = int(input('Insira o vertice2 de incidencia: '))
+        """ v1 = int(input('Insira o vertice1 de incidencia: '))
+        v2 = int(input('Insira o vertice2 de incidencia: ')) """
 
-        if v1 not in conjunto_vertices or v2 not in conjunto_vertices:
+        if v1 not in self.vertices or v2 not in self.vertices:
             print(
-                f'ERRO, {v1} e/ou {v2} não pertence ao seu conjunto V(G): {conjunto_vertices}')
-            return conjunto_arestas, grafo
-        if (v1, v2) not in conjunto_arestas and (v2, v1) not in conjunto_arestas:
-            print(f'ERRO, aresta informada não exite em seu conjunto de arestas!')
-            return conjunto_arestas, grafo
-        try:
-            indexAresta = conjunto_arestas.index((v1, v2))
-        except:
-            indexAresta = conjunto_arestas.index((v2, v1))
-            (v1, v2) = (v2, v1)
-        grafo = np.delete(grafo, indexAresta, 1)
-        conjunto_arestas.remove((v1, v2))
-        return conjunto_arestas, grafo
+                f'ERRO, {v1} e/ou {v2} não pertence ao seu conjunto V(G): {self.vertices}')
+            return False
 
-    def visitarVertice(self, conjunto_vertices, conjunto_arestas, grafo):
+        if (v1, v2) not in self.arestas and self.dirigido == True:
+            print(f'ERRO, aresta informada não exite em seu conjunto de arestas!')
+            return False
+
+        if (v1, v2) not in self.arestas and (v2, v1) not in self.arestas:
+            print(f'ERRO, aresta informada não exite em seu conjunto de arestas!')
+            return False
+        try:
+            indexAresta = self.arestas.index((v1, v2))
+        except:
+            indexAresta = self.arestas.index((v2, v1))
+            (v1, v2) = (v2, v1)
+        self.grafo = np.delete(self.grafo, indexAresta, 1)
+        self.arestas.remove((v1, v2))
+        return True
+
+    def visitarVertice(self, vertice):
         ''' Faz uma visita no vertice desejado e retorna todos os seus dados'''
         print('VISITAR VERTICE')
-        vertice = int(
-            input(f'Dado V(G): {conjunto_vertices}, informe o vertice a ser visitado:'))
-        if vertice not in conjunto_vertices:
+        """ vertice = int(
+            input(f'Dado V(G): {conjunto_vertices}, informe o vertice a ser visitado:')) """
+        if vertice not in self.vertices:
             print(
                 f'ERRO, {vertice} não faz parte do seu conjunto de vertices!!')
-        indexVertice = conjunto_vertices.index(vertice)
-        visita = list(grafo[indexVertice])
+            return "Vertice não existente"
+        indexVertice = self.vertices.index(vertice)
+        visita = list(self.grafo[indexVertice])
         dadoTxt = f'E({vertice}) = ' + '{'
         for incide, value in enumerate(visita):
             if value == 1:
-                dadoTxt = dadoTxt + f'{conjunto_arestas[incide]}, '
-        print(dadoTxt[:-2] + '}')
+                dadoTxt = dadoTxt + f'{self.arestas[incide]}, '
+        if self.dirigido == True:
+            return dadoTxt[:-2] + '} ' + f'\n\nSomente arestas que sai do vertice {vertice}!!'
+        else:
+            return dadoTxt[:-2] + '} '

@@ -3,7 +3,7 @@ import numpy as np
 
 
 class ListaAdjacencia(Grafo):
-    def __init__(self, txtVertice, txtArestas, dirigido=0):
+    def __init__(self, txtVertice, txtArestas, dirigido):
         super().__init__(txtVertice, txtArestas, dirigido)
         self.grafo = self.listaAjacencia()
 
@@ -96,7 +96,7 @@ class ListaAdjacencia(Grafo):
 
         return True
 
-    def consultarVertice(self, vertice):
+    def visitarVertice(self, vertice):
         # Dado um vertice, é feita a consulta imprimindo todos os dados referentes àquele vertice
         print('CONSULTAR VERTICE')
         """ vertice = int(
@@ -106,7 +106,10 @@ class ListaAdjacencia(Grafo):
         dadoTxt = f'E({vertice}) = ' + '{'
         for incide in self.grafo[indexVertice]:
             dadoTxt = dadoTxt + f'({vertice},{incide}), '
-        return dadoTxt[:-2] + '}'
+        if self.dirigido == True:
+            return dadoTxt[:-2] + '} ' + f'\n\nSomente arestas que sai do vertice {vertice}!!'
+        else:
+            return dadoTxt[:-2] + '} '
 
 
 #lista = ListaAdjacencia('{0, 1, 2, 3}', '{(0, 1) - (1, 2) - (3, 0) - (2, 3)}', 1)
