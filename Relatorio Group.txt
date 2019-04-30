@@ -1,0 +1,149 @@
+ATENÇÃO: PARA MELHOR VISUALIZAÇÃO, ABRA ESTE ARQUIVO PELO GITHUB
+
+Trabalhos referente as aulas de teoria os grafos incluindo atividades avaliativas referente a produção de algoritmos!
+
+Segue abaixo o relatorio de cada parte do algoritmo e como executar:
+
+Todos os codigos produzidos foram feito em linguagem de programação python, abaixo contem uma descrição de cada nivel pasta:
+
+OBSERVAÇÃO: todos os algoritmos foram feitos em python 3.7 e é preciso instalar a biblioteta numpy, para instalar, execute no terminal:
+
+pip install numpy
+
+Feito isso:
+
+|---Avaliacao1
+|   |
+|   |---interface
+|   |       *Nessa atividade foi feita uma interface grafica para melhor entendimento da execução
+|   |        do codigo. A interface foi produzida na biblioteta nativa do python 3.7, Tkinter.
+|   |
+|   |---representacoes
+|   |       |       *Aqui contem todas as representações e manipulacoes solicitadas pela professora Patricia, isso inclui as
+|   |       |       representações de lista de adjacencia, matriz de incidencia e matriz de adjacencia e em cada uma delas
+|   |       |       vai ser gerada uma representação por conjuntos. As representações estão separadas por classes em diferentes arquivos .py .
+|   |       |
+|   |       |--Grafo.py
+|   |       |       *Classe pai abstrada que contem as propriedades basicas de cada representação de grafo
+|   |       |
+|   |       |--listaAdjacecia.py
+|   |       |       *Representação de grafo por lista de adjacencia e seus metodos de manipulação!
+|   |       |       Dado um grafo G(V,E) Cada lista A(v) é denominada lista de adjacência de v, e contém todos os vértices que são adjacentes a v.
+|   |       |
+|   |       |--matrizAdjacencia.py
+|   |       |       *Representação de grafo por matriz de adjacencia e seus metodos de manipulação
+                    A matriz de adjacência é uma matriz n x n, onde n é dado por n vertices, onde o valor de cada elemento E(jk) da matriz é determinado 
+                    da seguinte maneira:
+                        E(jk) = 1, se os vértices v(j) e v(k) são ligados por uma aresta, senão, E(jk) = 0.
+
+|   |       |
+|   |       |--matrizIncidencia.py
+|   |       |       *Representação de grafo por matriz de incidencia e seus metodos de manipulação
+                    Seja G um grafo de n vértices v1, v2,…,vn, e m arestas a1, a2, …, am, e nenhum laço.
+                    É uma matriz n x m, onde o valor de cada elemento da matriz é determinado da seguinte maneira:
+                        E(jk) = 1, se a aresta a(k) é incidente ao vértice v(j), senão, = 0!
+                        Sendo J a linha e K a coluna do elemento E.
+                    Se G for um grafo dirigido, então:
+                        E(jk) = 1, se a aresta a(k) sai do vértice v(j)
+                        E(jk) = -1, se a aresta a(k) chega no vértice v(j), senão, = 0
+|   |
+|   |--main.py
+|   |       *Arquivo principal de executação dos metodos de representacoes, basta executar no terminal esse arquivo!
+|
+|---Busca-Largura
+|   |
+|   |--busca.py
+|   |       *Arquivo principal de execução do metodo, nele esta declarado estaticamente o grafo representado na imagem Grafo1.png
+|   |       da mesma pasta. Para testar outro grafo basta declarar o grafo desejado por meio da lista de adjacencia.
+|   |
+|   |--Grafo1.png
+|   |       *Representação do grafo utilizado para teste no algoritmo de busca!  
+|
+|---Fleury
+|   |
+|   |--Fleury.py
+|   |       *Arquivo principal de executação do metodo
+|   |
+|   |--GrafosEulerianosFleuryEx1e2.pdf
+|   |       *Este pdf contem os exemplos utilizados
+|   |
+|   |--README.md
+|   |       *Este é um arquivo importante, para mais detalhes do algoritmo de Fleury, abra e leia este arquivo.
+|  
+|---Hierholzer
+|   |
+|   |--main.py
+|   |       *Arquivo principal, da atividade de grafos eulerianos e trilhas eulerianas.
+|   |
+|  
+|---Kruskal
+|   |
+|   |--checkCicle.py
+|   |       *Este arquivo irá armazenar a função que verifica a possibilidade de existencia
+|   |       de ciclos dentro da minha arvore
+|   |
+|   |--grafo.py
+|   |       *Este arquivo contém a função de retorna a lista de arestas, ordenada por peso, de um grafo,
+|   |       e esse grafo deve ser passado por representação de lista de adjacencia.
+|   |
+|   |--Kruskal.py  
+|   |       *Este é o arquivo principal para execução, nele contém o algoritmo de kruskal. Também contem
+|   |       4 grafos declarados estáticamente com o fim de verificar a veracidade do algoritmo. Cada grafo
+|   |       é tem sua imagem correspondente na mesma pasta, por exemplo, a variavel grafo1 no algoritmo
+|   |       de kruskal tem sua imagem corresponde que é grafo1.png.
+|   |
+|   |--grafo1.png
+|   |       *Este é o grafo correspondente a variavel grafo1 no algoritmo de kruskal
+|   |
+|   |--grafo2.png
+|   |       *Este é o grafo correspondente a variavel grafo2 no algoritmo de kruskal
+|   |
+|   |--grafo3.png
+|   |       *Este é o grafo correspondente a variavel grafo3 no algoritmo de kruskal
+|   |  
+|   |--grafo4.png
+|   |       *Este é o grafo correspondente a variavel grafo4 no algoritmo de kruskal
+|  
+|---Prim
+|   |
+|   |--checkCicle.py
+|   |       *Este arquivo irá armazenar a função que verifica a possibilidade de existencia
+|   |       de ciclos dentro da minha arvore
+|   |
+|   |--prim.py
+|   |       *Este é o arquivo principal para execução, nele contém o algoritmo de prim. Também contém
+|   |       4 grafos declarados estáticamente com o fim de verificar a veracidade do algoritmo. Cada grafo
+|   |       tem sua imagem correspondente na mesma pasta, por exemplo, a variavel grafo1 no algoritmo
+|   |       de Prm tem sua imagem corresponde que é grafo1.png.
+|   |
+|   |--grafo1.png
+|   |       *Este é o grafo correspondente a variavel grafo1 no algoritmo de Prim
+|   |
+|   |--grafo2.png
+|   |       *Este é o grafo correspondente a variavel grafo2 no algoritmo de Prim
+|   |
+|   |--grafo3.png
+|   |       *Este é o grafo correspondente a variavel grafo3 no algoritmo de Prim
+|   |  
+|   |--grafo4.png
+|   |       *Este é o grafo correspondente a variavel grafo4 no algoritmo de Prim
+|  
+|---Relatorio Group
+|   |   *Este relatorio criado pelo grupo
+|
+|
+
+RELATORIO PESSOAL DE CADA MEMBRO DO GRUPO
+
+Manoel Gomes Borges
+Este trabalho com certeza foi um dos mais trabalhosos ja feitos, nossa equipe iniciou os trabalhos bem cedo
+e ainda sim pareceu que não ia dar tempo, no fim deu tudo certo e todos os membros conseguiram entregar suas
+partes a tempo. Além disso, a parte em que eu tive mais dificuldade para achar uma solução lógica, foi a implementação
+das representações de grafos e suas manipulações!
+
+Carlos Mateus Sena de Oliveira
+Mesmo dividindo as tarefas para os membros do grupo, ainda sim obtive dificuldade e entender algumas partes
+do conteudo e da implementação, porém, por ser uma equipe sentamos e começamos a debater os conteudos da disciplina
+e como cada regra de cada algoritmo ia ser aplicada na linguagem, assim, conseguimos obter transparencia nas implementações.
+Ainda sim, existem partes dos algoritmos que trabalham com recursividade e estou tentando entender isso, mas, não implica
+no entendimento do conteudo passado em sala.
