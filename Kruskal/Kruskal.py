@@ -46,14 +46,21 @@ print(arestas)
 minha_arvore = list()
 contador = len(grafo)
 vertices_arvore = list()
+
 for peso, aresta in arestas:
+    # Inicia verificação das arestas, apartir do menor peso
     print(f'mandando analisar a aresta {aresta}')
     if Vc(minha_arvore, aresta) and Vc(minha_arvore, [aresta[-1], aresta[0]]):
+        # Verifico se essa aresta que esta sendo analisada vai formar um ciclo dentro da minha arvore
+        # Se não formar, entao vai adicionar na arvore
         minha_arvore.append([peso, aresta])
         for vertice in aresta:
             if vertice not in vertices_arvore:
                 vertices_arvore.append(vertice)
     if len(vertices_arvore) == contador and (len(vertices_arvore) - len(minha_arvore)) == 1:
+        '''Aqui temos nosso criterio de parada, onde a arvore minimima encontrada dever conter todos os vertices,
+        alem disso, respeitar o calculo que descreve uma arvore minima que é dada por:
+        numero de vertices - numero de arestas = 1 '''
         break
 
 
